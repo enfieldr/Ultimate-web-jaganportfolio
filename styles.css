@@ -1,7 +1,7 @@
 :root {
     --primary-color: #adf0d4;
     --secondary-color: #1fd8a4;
-    --bg-color: #0d1512;
+    --bg-color: #080707;
 }
 
 
@@ -30,6 +30,11 @@ header,main,footer {
     max-width: 700px;
     margin:0 auto;
     width: 100%;
+}
+
+p {
+    font-size: 1.05em;
+
 }
 
 header {
@@ -69,7 +74,7 @@ main {
 }
 
 section {
-    gap: 32px;
+    gap: 48px;
 
 }
 
@@ -77,14 +82,67 @@ section {
     gap: 8px;
 }
 
+.statsContainer {
+    display: flex;
+    flex-direction:  column;
+    align-items: stretch;
+    gap: 24px;
+}
+
 .imgContainer {
     border-radius:100%;
-    max-width: 72px;
+    max-width: 114px;
     overflow: hidden;
 }
 
-.imgcontainer img {
+.imgContainer img {
     width: 100%;
     aspect-ratio: 1/1;
-    object-fit: cover;;
+    object-fit: cover;
 }
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    
+}
+
+.stats>div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ststs div i {
+    font-size: 1.4em;
+
+}
+
+.stats div div {
+    display: grid;
+    place-items:center;
+    min-width:40px;
+}
+
+.aboutme {
+    line-height: 1.5em;
+}
+
+@media (min-width: 640px) {
+    .statsContainer {
+        flex-direction: row;
+        ;
+
+    }
+    .ststs {
+        gap: 0px;
+    }
+
+    .aboutme {
+        width: 80%;
+        margin-right: auto;
+    }
+}
+

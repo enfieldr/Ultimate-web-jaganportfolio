@@ -130,6 +130,16 @@ section {
     line-height: 1.5em;
 }
 
+.outreach {
+    display: flex;
+    align-items: center;
+    gap: 14px;;
+}
+
+.outreach i {
+    transform: rotate(300deg);
+}
+
 @media (min-width: 640px) {
     .statsContainer {
         flex-direction: row;

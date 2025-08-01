@@ -40,7 +40,7 @@ p {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     gap: 14px;
 
 }
@@ -71,6 +71,7 @@ main, section, .namecontainer {
 
 main {
     gap: 64px;
+    padding-bottom: 64px;
 }
 
 section {

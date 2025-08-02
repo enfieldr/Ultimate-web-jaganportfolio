@@ -263,6 +263,19 @@ section {
     font-size: 1.1em;
 }
 
+/* Documentation Button Style */
+.linkItem.documentation-link {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    border: 1.5px solid var(--secondary-color);
+    font-weight: 600;
+}
+.linkItem.documentation-link:hover {
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+}
+
 /* Resume Section */
 #resume .linkItem {
     margin-top: 18px;

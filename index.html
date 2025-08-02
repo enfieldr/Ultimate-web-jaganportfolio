@@ -12,6 +12,9 @@ rel="stylesheet">
 <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+
+  <!--Header-->
+
     <header>
         <h2>PortFolio</h2>
         <nav>
@@ -20,6 +23,9 @@ rel="stylesheet">
             <a href="#resume">Resume</a>
         </nav>
     </header>
+
+    <!--About Me-->
+
     <main>
         <section>
         <section id="about"></section>
@@ -58,9 +64,30 @@ rel="stylesheet">
             <i class="fa-solid fa-arrow-right"></i>
             <p>Email me</p>
         </a></div>
-        </section>
+</section>
+<!-- Skills Section -->
+<section id="skills" style="margin-top:48px;">
+    <p class="darkerText headerText">Skills</p>
+    <ul class="skills-list">
+
+        <li><i class="fa-solid fa-code"></i> Java</li>
+        <li><i class="fa-solid fa-database"></i> SQL (TDH SQL, Data Reporting)</li> 
+        <li><i class="fa-solid fa-hexagon-nodes"></i>Artificial Intelligence</li>
+        <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
+        <li><i class="fa-brands fa-html5"></i> HTML</li>
+        <li><i class="fa-brands fa-css3-alt"></i> CSS</li>
+        <li><i class="fa-solid fa-shield-halved"></i> Cyber Security Awareness</li>
+        <li><i class="fa-solid fa-laptop-code"></i> Full Stack Project Development</li>
+        <li><i class="fa-solid fa-bolt"></i> Fast Learner & Adapting to New Tech</li>
+    </ul>
+</section>
+        <!--Projects Section-->
+       
         <section class="projectContainer">
             <p class="darkerText headerText">Latest projects</p>
+
+            <!--Cyber Security-->
+
             <div class="projectItem">
                 <div>
                     <p class="darkerText">jan 24, 2024</p>
@@ -80,6 +107,9 @@ rel="stylesheet">
                     <img src="offlinedevice.png" alt="offlinedevice.png">
                 </div>
                 </div>
+
+                <!--AI chatbot-->
+
                 <div class="projectItem">
                 <div>
                     <p class="darkerText">Mar 20, 2025</p>
@@ -99,7 +129,9 @@ rel="stylesheet">
                     <img src="AI ChatBot.png" alt="AI ChatBot project screenshot">
                 </div>
                 </div>
-                
+
+                <!--Java Project-->
+
                 <div class="projectItem">
                 <div>
                     <p class="darkerText">Jun 15, 2024</p>
@@ -124,7 +156,9 @@ rel="stylesheet">
             </div>
         </section>
     </main>
+
     <!-- Add this before </body> in your index.html -->
+
 <div id="chatbot-toggle" style="position:fixed;bottom:24px;right:24px;z-index:9999;">
   <button id="open-chatbot" style="background:#1fd8a4;color:#080707;border:none;border-radius:50%;width:56px;height:56px;font-size:2em;cursor:pointer;">💬</button>
 </div>
@@ -140,7 +174,9 @@ rel="stylesheet">
   </form>
 </div>
 <script>
+
 // Simple AI Chatbot for navigation
+
 const chatbotToggle = document.getElementById('open-chatbot');
 const chatbotBox = document.getElementById('chatbot-box');
 const chatbotClose = document.getElementById('close-chatbot');
@@ -180,6 +216,9 @@ chatbotForm.onsubmit = e => {
   chatbotInput.value = '';
 };
 </script>
+
+<!--AI chatbot scripting Datas-->
+
 <script>
 function botReply(msg) {
   const lower = msg.toLowerCase();
@@ -241,10 +280,12 @@ function botReply(msg) {
 }
 </script>
 
+ <!--Resume Section-->
+
 <section id="resume" style="margin-top:48px;">
     <p class="darkerText headerText">Resume</p>
     <p>You can download my latest resume below:</p>
-    <a href="resume.pdf" download class="linkItem" style="margin-top:12px;">
+    <a href="jaganarul alll.pdf" download class="linkItem" style="margin-top:12px;">
         <span><i class="fa-solid fa-download"></i></span>
         <span><strong>Click here to download</strong></span>
     </a>

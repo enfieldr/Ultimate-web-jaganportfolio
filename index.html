@@ -12,13 +12,13 @@ rel="stylesheet">
 <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <hearer>
+    <header>
         <h2>PortFolio</h2>
         <nav>
-            <a>GitHub</a>
-            <a>LinkedIn</a>
+            <a class="darkerText" href="https://github.com/enfieldr" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/jaganarul-a-22887a227" target="_blank">LinkedIn</a>
         </nav>
-    </hearer>
+    </header>
     <main>
         <section>
 
@@ -27,7 +27,7 @@ rel="stylesheet">
         <h1>Jaganarul</h1>
         <p class="darkerText">I am a Java developer</p>
         </div>
-        <div class=""statsContainer>
+        <div class="statsContainer">
             <div class="imgContainer">
                 <img src="jaganprofile.png" alt="jaganprofile.png" />
             </div>
@@ -53,7 +53,7 @@ rel="stylesheet">
             </div>
         </div>
         <p class="aboutMe"> Hi I'm Jaganarul, a passionate Computer Science Engineering graduate from Priyadarshini Engineering College, currently building my career in Java development. I bring hands-on experience with SQL, especially TDH SQL for data reporting in Temenos Core Banking systems. I'm known for adapting quickly to new tools and technologies.</p>
-        <div><a class="outreach darkerText">
+        <div><a href="mailto:jaganaurl179@gmail.com" class="outreach darkerText">
             <i class="fa-solid fa-arrow-right"></i>
             <p>Email me</p>
         </a></div>
@@ -64,39 +64,55 @@ rel="stylesheet">
                 <div>
                     <p class="darkerText">jan 24, 2024</p>
                     <p>Beyond The Firewall Demistifying offlie Device vulnerability</p>
-                       <div class="linkContainer">
-                        <a target="_blank" href="https://github.com/enfieldr" class="linkItem">
-                         <div>
-                    <i class="fa-brands fa-github"></i>
-                         </a>
-                    <p class="">GitHub</p>
-                        </a>
-                    <a target="_blank" href="https://youtube.com/shorts/b-F6c4030G0?si=qHsUikE9xi5YQvC-" class="linkItem">
-                        <div>
-                    <i class="fa-solid fa-bolt"></i>
-                    </div>
-                    <p class="">Live</p>
-                </div>
-                </div>
+                      <div class="linkContainer">
+    <a target="_blank" href="https://github.com/enfieldr" class="linkItem">
+        <span><i class="fa-brands fa-github"></i></span>
+        <span>GitHub</span>
+    </a>
+    <a target="_blank" href="https://youtube.com/shorts/b-F6c4030G0?si=qHsUikE9xi5YQvC-" class="linkItem">
+        <span><i class="fa-solid fa-bolt"></i></span>
+        <span>Live</span>
+    </a>
+</div>
                 </div>
                 <div>
-                    <img src="offlinedevice.png" alt="offlinedevice,png">
+                    <img src="offlinedevice.png" alt="offlinedevice.png">
                 </div>
                 </div>
                 <div class="projectItem">
                 <div>
                     <p class="darkerText">Mar 20, 2025</p>
                     <p>AI ChatBot</p>
+                     <div class="linkContainer">
+    <a target="_blank" href="https://github.com/enfieldr" class="linkItem">
+        <span><i class="fa-brands fa-github"></i></span>
+        <span>GitHub</span>
+    </a>
+    <a target="_blank" href="https://youtube.com/shorts/b-F6c4030G0?si=qHsUikE9xi5YQvC-" class="linkItem">
+        <span><i class="fa-solid fa-bolt"></i></span>
+        <span>Live</span>
+    </a>
+</div>
                 </div>
                 <div>
-                    <img src="AI CHatBot.png" alt="AI chatBot.png">
+                    <img src="AI ChatBot.png" alt="AI ChatBot project screenshot">
                 </div>
                 </div>
                 
                 <div class="projectItem">
                 <div>
-                    <p class="darkerText">,Jun 15, 2024</p>
+                    <p class="darkerText">Jun 15, 2024</p>
                     <p>Online Banking System in Java</p>
+                    <div class="linkContainer">
+    <a target="_blank" href="https://github.com/enfieldr" class="linkItem">
+        <span><i class="fa-brands fa-github"></i></span>
+        <span>GitHub</span>
+    </a>
+    <a target="_blank" href="https://youtube.com/shorts/b-F6c4030G0?si=qHsUikE9xi5YQvC-" class="linkItem">
+        <span><i class="fa-solid fa-bolt"></i></span>
+        <span>Live</span>
+    </a>
+</div>
                 </div>
                 <div>
                     <img src="OnlineBanking.png" alt="OnlineBanking.png">
@@ -107,6 +123,83 @@ rel="stylesheet">
             </div>
         </section>
     </main>
+    <!-- Add this before </body> in your index.html -->
+<div id="chatbot-toggle" style="position:fixed;bottom:24px;right:24px;z-index:9999;">
+  <button id="open-chatbot" style="background:#1fd8a4;color:#080707;border:none;border-radius:50%;width:56px;height:56px;font-size:2em;cursor:pointer;">💬</button>
+</div>
+<div id="chatbot-box" style="display:none;position:fixed;bottom:90px;right:24px;width:320px;max-width:90vw;background:#080707;color:#adf0d4;border-radius:12px;box-shadow:0 2px 16px #000a;padding:0;z-index:9999;">
+  <div style="padding:12px 16px;border-bottom:1px solid #1fd8a4;display:flex;justify-content:space-between;align-items:center;">
+    <span>AI ChatBot</span>
+    <button id="close-chatbot" style="background:none;border:none;color:#adf0d4;font-size:1.2em;cursor:pointer;">✖</button>
+  </div>
+  <div id="chatbot-messages" style="padding:12px 16px;height:180px;overflow-y:auto;font-size:1em;"></div>
+  <form id="chatbot-form" style="display:flex;border-top:1px solid #1fd8a4;">
+    <input id="chatbot-input" type="text" placeholder="Ask me about this portfolio..." autocomplete="off" style="flex:1;padding:8px 12px;background:#222;border:none;color:#adf0d4;">
+    <button type="submit" style="background:#1fd8a4;color:#080707;border:none;padding:0 16px;cursor:pointer;">Send</button>
+  </form>
+</div>
+<script>
+// Simple AI Chatbot for navigation
+const chatbotToggle = document.getElementById('open-chatbot');
+const chatbotBox = document.getElementById('chatbot-box');
+const chatbotClose = document.getElementById('close-chatbot');
+const chatbotForm = document.getElementById('chatbot-form');
+const chatbotInput = document.getElementById('chatbot-input');
+const chatbotMessages = document.getElementById('chatbot-messages');
+
+chatbotToggle.onclick = () => chatbotBox.style.display = 'block';
+chatbotClose.onclick = () => chatbotBox.style.display = 'none';
+
+function botReply(msg) {
+  const lower = msg.toLowerCase();
+  if (lower.includes('about')) return "Go to the About Me section to learn more about Jaganarul.";
+  if (lower.includes('project')) return "Scroll down to see the Latest Projects section.";
+  if (lower.includes('contact') || lower.includes('email')) return "Click the 'Email me' button to get in touch!";
+  if (lower.includes('github')) return "Visit the GitHub link in the header or project cards.";
+  if (lower.includes('linkedin')) return "Visit the LinkedIn link in the header.";
+  if (lower.includes('skills') || lower.includes('tech')) return "Skills are highlighted in the About Me section.";
+  return "Sorry, I can help you navigate this portfolio. Try asking about 'projects', 'about', 'contact', or 'GitHub'.";
+}
+
+function addMessage(text, from='user') {
+  const div = document.createElement('div');
+  div.style.margin = '6px 0';
+  div.style.textAlign = from === 'user' ? 'right' : 'left';
+  div.innerHTML = `<span style="background:${from==='user'?'#1fd8a4':'#222'};color:${from==='user'?'#080707':'#adf0d4'};padding:6px 12px;border-radius:16px;display:inline-block;max-width:80%;">${text}</span>`;
+  chatbotMessages.appendChild(div);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+chatbotForm.onsubmit = e => {
+  e.preventDefault();
+  const msg = chatbotInput.value.trim();
+  if (!msg) return;
+  addMessage(msg, 'user');
+  setTimeout(() => addMessage(botReply(msg), 'bot'), 500);
+  chatbotInput.value = '';
+};
+</script>
+<script>
+function botReply(msg) {
+  const lower = msg.toLowerCase();
+  // Greetings
+  if (["hi", "hello", "hey"].some(greet => lower.includes(greet))) return "Hi! How can I help you navigate my portfolio?";
+  // About
+  if (lower.includes('about')) return "Go to the About Me section to learn more about Jaganarul.";
+  // Projects
+  if (lower.includes('project')) return "Scroll down to see the Latest Projects section.";
+  // Contact
+  if (lower.includes('contact') || lower.includes('email')) return "Click the 'Email me' button to get in touch!";
+  // GitHub
+  if (lower.includes('github')) return "Visit the GitHub link in the header or project cards.";
+  // LinkedIn
+  if (lower.includes('linkedin')) return "Visit the LinkedIn link in the header.";
+  // Skills
+  if (lower.includes('skills') || lower.includes('tech')) return "Skills are highlighted in the About Me section.";
+  // Default
+  return "Sorry, I can help you navigate this portfolio. Try asking about 'projects', 'about', 'contact', or 'GitHub'.";
+}
+</script>
     
 </body>
 </html>

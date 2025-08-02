@@ -17,6 +17,7 @@ rel="stylesheet">
         <nav>
             <a class="darkerText" href="https://github.com/enfieldr" target="_blank">GitHub</a>
             <a href="https://linkedin.com/in/jaganarul-a-22887a227" target="_blank">LinkedIn</a>
+            <a href="#resume">Resume</a>
         </nav>
     </header>
     <main>
@@ -182,24 +183,72 @@ chatbotForm.onsubmit = e => {
 <script>
 function botReply(msg) {
   const lower = msg.toLowerCase();
+
   // Greetings
-  if (["hi", "hello", "hey"].some(greet => lower.includes(greet))) return "Hi! How can I help you navigate my portfolio?";
-  // About
-  if (lower.includes('about')) return "Go to the About Me section to learn more about Jaganarul.";
+  if (["hi", "hello", "hey", "good morning", "good evening"].some(greet => lower.includes(greet)))
+    return "Hi! How can I help you navigate my portfolio? Try asking about projects, skills, or contact.";
+
+  // About Me
+  if (lower.includes("about") || lower.includes("who are you"))
+    return "I'm Jaganarul, a passionate Java developer and tech enthusiast. Check out the About Me section for more.";
+
   // Projects
-  if (lower.includes('project')) return "Scroll down to see the Latest Projects section.";
-  // Contact
-  if (lower.includes('contact') || lower.includes('email')) return "Click the 'Email me' button to get in touch!";
+  if (lower.includes("project") || lower.includes("work") || lower.includes("portfolio"))
+    return "Sure! Scroll down to see the Latest Projects section with code samples and GitHub links.";
+
+  // Contact Info
+  if (lower.includes("contact") || lower.includes("email") || lower.includes("reach"))
+    return "You can reach out by clicking the 'Email me' button or visiting the Contact section.";
+
   // GitHub
-  if (lower.includes('github')) return "Visit the GitHub link in the header or project cards.";
+  if (lower.includes("github") || lower.includes("repo") || lower.includes("source code"))
+    return "You’ll find GitHub links in the header or in each project card.";
+
   // LinkedIn
-  if (lower.includes('linkedin')) return "Visit the LinkedIn link in the header.";
-  // Skills
-  if (lower.includes('skills') || lower.includes('tech')) return "Skills are highlighted in the About Me section.";
-  // Default
-  return "Sorry, I can help you navigate this portfolio. Try asking about 'projects', 'about', 'contact', or 'GitHub'.";
+  if (lower.includes("linkedin") || lower.includes("network"))
+    return "You can connect with me on LinkedIn through the icon in the header.";
+
+  // Skills / Technologies
+  if (lower.includes("skills") || lower.includes("tech") || lower.includes("technology") || lower.includes("languages"))
+    return "I’m skilled in Java, SQL, Git, HTML, CSS, and building full-stack projects. Details are in the About Me section.";
+
+  // Resume
+  if (lower.includes("resume") || lower.includes("cv"))
+    return "Click the 'Download Resume' button in the header to get a copy of my latest resume.";
+
+  // Certifications
+  if (lower.includes("certification") || lower.includes("courses"))
+    return "Check the Certifications section for completed courses like Java Masterclass, Git, and more.";
+
+  // Blog / Articles
+  if (lower.includes("blog") || lower.includes("article") || lower.includes("writing"))
+    return "I occasionally write about tech and projects. Visit the Blog section if available.";
+
+  // Education
+  if (lower.includes("education") || lower.includes("college") || lower.includes("study"))
+    return "I graduated from Priyadarshini Engineering College in Computer Science Engineering.";
+
+  // Location
+  if (lower.includes("location") || lower.includes("where are you from"))
+    return "I’m based in India. Open to remote opportunities worldwide.";
+
+  // Help or unknown command
+  if (lower.includes("help") || lower.includes("how"))
+    return "Try asking about: 'projects', 'skills', 'GitHub', 'resume', or 'contact'.";
+
+  // Default fallback
+  return "I'm not sure how to help with that. Try typing 'skills', 'about', 'contact', or 'GitHub'.";
 }
 </script>
+
+<section id="resume" style="margin-top:48px;">
+    <p class="darkerText headerText">Resume</p>
+    <p>You can download my latest resume below:</p>
+    <a href="resume.pdf" download class="linkItem" style="margin-top:12px;">
+        <span><i class="fa-solid fa-download"></i></span>
+        <span><strong>Click here to download</strong></span>
+    </a>
+</section>
     
 </body>
 </html>

@@ -165,6 +165,7 @@ section {
     color: var(--secondary-color);
 }
 
+
 /* Skills Section */
 .skills-list {
     list-style: none;
@@ -455,3 +456,4 @@ img, video {
     height: auto;
     display: block;
 }
+

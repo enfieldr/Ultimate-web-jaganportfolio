@@ -1,9 +1,4 @@
-// === Theme Toggle ===
-const toggleBtn = document.getElementById('theme-toggle');
-toggleBtn?.addEventListener('click', () => {
-  document.body.classList.toggle('light-theme');
-  toggleBtn.innerText = document.body.classList.contains('light-theme') ? '🌞' : '🌙';
-});
+
 
 // === Smooth Scroll for Nav Links ===
 document.querySelectorAll('nav a').forEach(link => {

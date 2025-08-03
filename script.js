@@ -22,6 +22,8 @@ topBtn?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+
+
 // === Chatbot Logic with Typing Effect ===
 function addMessage(msg, sender = 'bot') {
   const container = document.getElementById('chat');
@@ -52,6 +54,8 @@ function botReply(userMsg) {
   return "I'm here to guide you through the site. Try typing 'skills', 'projects', or 'resume'.";
 }
 
+
+
 // === User Message Input Handling ===
 document.getElementById('send-btn')?.addEventListener('click', () => {
   const input = document.getElementById('user-input');
@@ -72,3 +76,4 @@ window.addEventListener('load', () => {
     addMessage("Hi there! I'm your AI assistant. Type 'help' to get started. 🤖", 'bot');
   }, 1000);
 });
+

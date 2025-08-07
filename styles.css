@@ -3,9 +3,9 @@
     --primary-color: #adf0d4;
     --secondary-color: #1fd8a4;
     --accent-color: #13b88a;
-    --accent2: #ffb347;
-    --accent3: #ff5e62;
-    --accent4: #5e72eb;
+    --accent2: #fafafafc;
+    --accent3: #f2a4a4;
+    --accent4: #77bdec;
     --bg-color: #080707;
     --bg-gradient: linear-gradient(135deg, #080707 60%, #1fd8a4 100%);
     --card-bg: rgba(24,24,24,0.85);
@@ -14,7 +14,7 @@
     --radius: 16px;
     --transition: 0.25s cubic-bezier(.4,0,.2,1);
     --font-main: 'Inter', sans-serif;
-    --button-gradient: linear-gradient(90deg, #1fd8a4 0%, #ffb347 100%);
+    --button-gradient: linear-gradient(90deg, #aba610 0%, #000000 100%);
     --button-gradient-hover: linear-gradient(90deg, #ff5e62 0%, #5e72eb 100%);
 }
 

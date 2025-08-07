@@ -77,3 +77,65 @@ window.addEventListener('load', () => {
   }, 1000);
 });
 
+// ...Greeting on Open...
+chatbotToggle.onclick = () => {
+    chatbotBox.style.display = 'block';
+    if (!chatbotMessages.hasChildNodes()) {
+        addMessage("👋 Hi! I'm your portfolio assistant. Ask me about projects, skills, or how to contact Jaganarul.", 'bot');
+    }
+};
+// ...Greeting on Open..
+
+// ...Typing Indicator...
+chatbotForm.onsubmit = e => {
+    e.preventDefault();
+    const msg = chatbotInput.value.trim();
+    if (!msg) return;
+    addMessage(msg, 'user');
+    const typingDiv = document.createElement('div');
+    typingDiv.id = 'typing-indicator';
+    typingDiv.style.textAlign = 'left';
+    typingDiv.innerHTML = `<span style="background:#222;color:#adf0d4;padding:6px 12px;border-radius:16px;display:inline-block;">Bot is typing...</span>`;
+    chatbotMessages.appendChild(typingDiv);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    setTimeout(() => {
+        typingDiv.remove();
+        addMessage(botReply(msg), 'bot');
+    }, 700);
+    chatbotInput.value = '';
+};
+// ...Typing Indicator...
+
+// ...Quick Suggestion Buttons...
+document.querySelectorAll('.chatbot-suggestion').forEach(btn => {
+    btn.onclick = () => {
+        chatbotInput.value = btn.textContent;
+        chatbotForm.dispatchEvent(new Event('submit'));
+    };
+});
+// ...Quick Suggestion Buttons...
+
+// ...Scroll to Section on Request...
+function botReply(msg) {
+    const lower = msg.toLowerCase();
+    if (lower.includes("project")) {
+        setTimeout(() => {
+            document.getElementById('projects').scrollIntoView({behavior: 'smooth'});
+        }, 800);
+        return "Scrolling to Latest Projects section...";
+    }
+    if (lower.includes("skills")) {
+        setTimeout(() => {
+            document.getElementById('skills').scrollIntoView({behavior: 'smooth'});
+        }, 800);
+        return "Here are my skills!";
+    }
+    if (lower.includes("contact")) {
+        setTimeout(() => {
+            document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+        }, 800);
+        return "Let's get in touch! Here's the contact section.";
+    }
+    // ...Scroll to Section on Request...
+}
+// ...existing code...

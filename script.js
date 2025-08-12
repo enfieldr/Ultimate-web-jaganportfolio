@@ -178,3 +178,20 @@ console.log(ScrollTrigger.getById("example").animation);
 
 // ==== clock ====|
 
+  function addMessage(text, from='user') {
+        const div = document.createElement('div');
+        div.style.margin = '6px 0';
+        div.style.textAlign = from === 'user' ? 'right' : 'left';
+        div.innerHTML = `<span style="background:${from==='user'?'#1fd8a4':'#222'};color:${from==='user'?'#080707':'#adf0d4'};padding:6px 12px;border-radius:16px;display:inline-block;max-width:80%;">${text}</span>`;
+        chatbotMessages.appendChild(div);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    chatbotForm.onsubmit = e => {
+        e.preventDefault();
+        const msg = chatbotInput.value.trim();
+        if (!msg) return;
+        addMessage(msg, 'user');
+        setTimeout(() => addMessage(botReply(msg), 'bot'), 500);
+        chatbotInput.value = '';
+    };

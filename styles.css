@@ -484,7 +484,7 @@ section::before {
     transition: color var(--transition), background var(--transition), border var(--transition);
 }
 .outreach:hover {
-    color: #fff;
+    color: #050404;
     background: var(--button-gradient-hover);
     border-color: var(--accent4);
 }

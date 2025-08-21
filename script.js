@@ -196,16 +196,4 @@ console.log(ScrollTrigger.getById("example").animation);
         chatbotInput.value = '';
     };
 
-   // Add scroll-based animation
-window.addEventListener("scroll", () => {
-  const hero = document.querySelector(".hero");
-  hero.style.transform = `translateY(${window.scrollY * 0.3}px)`;
-});
-
-// Button click animation
-document.querySelectorAll(".btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    btn.classList.add("active");
-    setTimeout(() => btn.classList.remove("active"), 300);
-  });
-});
+   

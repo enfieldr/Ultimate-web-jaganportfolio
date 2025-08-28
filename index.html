@@ -9,6 +9,143 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles.css"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* === Dark Mode Variables (default) === */
+  :root {
+    --bg-color: #0a0a0a;
+    --bg-gradient: linear-gradient(135deg, #0a0a0a 60%, #2e3a59 100%);
+    --text-color: #ffffff;
+    --heading-color: #3949ab;
+    --card-bg: rgba(28,28,30,0.95);
+    --button-text: #ffffff;
+    --button-gradient: linear-gradient(90deg, #3f51b5 0%, #1a237e 100%);
+    --button-hover: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    --button-active: linear-gradient(90deg, #ff6a00 0%, #ee0979 100%);
+    --radius: 16px;
+    --transition: 0.3s ease-in-out;
+    --shadow: 0 4px 24px rgba(0,0,0,0.25), 0 1.5px 8px rgba(0,0,0,0.2);
+    --font-main: 'Inter', sans-serif;
+  }
+
+  /* === Light Mode Variables === */
+  html.light-mode {
+
+    --primary-color: #070808;
+    --secondary-color: #090a0a;
+     --accent2: #0f0f0ffc;
+    --bg-color: #fafafa;
+    --bg-gradient: linear-gradient(135deg, #ffffff 60%, #e3e6f0 100%);
+    --text-color: #222222;
+    --heading-color: #5e72eb;
+    --card-bg: rgba(253, 252, 252, 0.95);
+    --button-text: #050505;
+    --button-gradient: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+    --button-hover: linear-gradient(90deg, #6a11cb 0%, #ff6a00 100%);
+    --button-active: linear-gradient(90deg, #ff416c 0%, #ff4b2b 100%);
+  }
+
+  /* === General Styles === */
+  body {
+    margin: 0;
+    font-family: var(--font-main);
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    transition: background var(--transition), color var(--transition);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    transition: color var(--transition);
+  }
+
+  p {
+    color: var(--text-color);
+    transition: color var(--transition);
+    line-height: 1.6;
+  }
+
+  /* Buttons */
+  button {
+    background: var(--button-gradient);
+    color: var(--button-text);
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 16px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow);
+    margin-top: 12px;
+  }
+
+  button:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(0,0,0,0.35);
+  }
+
+  button:active {
+    background: var(--button-active);
+    transform: scale(0.96);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.5);
+  }
+
+  /* Theme Toggle Button */
+  #theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 999;
+  }
+
+  /* Card */
+  .card {
+    background: var(--card-bg);
+    padding: 32px;
+    margin: 80px auto;
+    border-radius: var(--radius);
+    width: 90%;
+    max-width: 600px;
+    box-shadow: var(--shadow);
+    transition: background var(--transition), color var(--transition);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- Theme Toggle -->
+<button id="theme-toggle">🌙 Dark</button>
+
+<!-- Example Card Content -->
+<div class="card">
+  <h1>Welcome to Jaganarul’s Portfolio</h1>
+  <p>Interactive AI chatbot available to guide you through the portfolio</p>
+  <button>📷</button>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+
+  // Load saved theme from localStorage
+  if (localStorage.getItem('theme') === 'light') {
+    html.classList.add('light-mode');
+    toggleBtn.textContent = "☀️ Light";
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    html.classList.toggle('light-mode');
+    const isLight = html.classList.contains('light-mode');
+    toggleBtn.textContent = isLight ? "☀️ Light" : "🌙 Dark";
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+</script>
     
     
 </head>
@@ -26,6 +163,8 @@
     <a href="https://github.com/enfieldr" target="_blank">GitHub</a>
     <a href="https://linkedin.com/in/jaganarul-a-22887a227" target="_blank">LinkedIn</a>
 </nav>
+
+
     </header>
 
     <main>
@@ -225,37 +364,158 @@
 
     chatbotToggle.onclick = () => chatbotBox.style.display = 'block';
     chatbotClose.onclick = () => chatbotBox.style.display = 'none';
-
     function botReply(msg) {
-        const lower = msg.toLowerCase();
-        if (["hi", "hello", "hey", "good morning", "good evening"].some(greet => lower.includes(greet)))
-            return "Hi! How can I help you navigate my portfolio? Try asking about projects, skills, or contact.";
-        if (lower.includes("about") || lower.includes("who are you"))
-            return "I'm Jaganarul, a passionate Java developer and tech enthusiast. Check out the About Me section for more.";
-        if (lower.includes("project") || lower.includes("work") || lower.includes("portfolio"))
-            return "Sure! Scroll down to see the Latest Projects section with code samples and GitHub links and documentation.";
-        if (lower.includes("contact") || lower.includes("email") || lower.includes("reach"))
-            return "You can reach out by clicking the 'Email me' button or visiting the Contact section.";
-        if (lower.includes("github") || lower.includes("repo") || lower.includes("source code"))
-            return "You’ll find GitHub links in the header or in each project card.";
-        if (lower.includes("linkedin") || lower.includes("network"))
-            return "You can connect with me on LinkedIn through the icon in the header.";
-        if (lower.includes("skills") || lower.includes("tech") || lower.includes("technology") || lower.includes("languages"))
-            return "I’m skilled in Java, SQL, Git, HTML, CSS, Maven, Docker and SpringBoot. Details are in the Skills section.";
-        if (lower.includes("resume") || lower.includes("cv"))
-            return "Click the 'Download Resume' button in the Resume section to get a copy of my latest resume.";
-        if (lower.includes("certification") || lower.includes("courses"))
-            return "Check the Certifications section for completed courses like Java Masterclass, Git, and more.";
-        if (lower.includes("blog") || lower.includes("article") || lower.includes("writing"))
-            return "I occasionally write about tech and projects. Visit the Blog section if available.";
-        if (lower.includes("education") || lower.includes("college") || lower.includes("study"))
-            return "I graduated from Priyadarshini Engineering College in Computer Science Engineering.";
-        if (lower.includes("location") || lower.includes("where are you from"))
-            return "I’m based in India. Open to remote opportunities worldwide.";
-        if (lower.includes("help") || lower.includes("how"))
-            return "Try asking about: 'projects', 'skills', 'GitHub', 'resume', or 'contact'.";
-        return "I'm not sure how to help with that. Try typing 'skills', 'about', 'contact', or 'GitHub'.";
+    const lower = msg.toLowerCase();
+
+    // === Greetings ===
+    if (["hi","hello","hey","yo","hi there","hello there","good morning","good evening","good afternoon","how are you","what's up","sup","hola","namaste","bonjour","ciao","konnichiwa","hey bot","hey jagan"].some(k => lower.includes(k)))
+        return "👋 Hello! I'm your AI assistant for Jaganarul’s portfolio. How can I help? Try asking about skills, projects, or resume.";
+
+    // === About Section ===
+    if (["about","about you","who are you","introduce yourself","tell me about jaganarul","about jagan","what do you do","self intro","portfolio owner"].some(k => lower.includes(k)))
+        return "🚀 I'm Jaganarul, a Computer Science graduate and Java developer passionate about building AI and banking systems. Check the About section for more.";
+
+    // === Projects ===
+    if (["project","projects","work","portfolio","apps","applications","show projects","recent work","latest project","banking system","ai chatbot","online banking"].some(k => lower.includes(k)))
+        return "📂 My projects include an AI Chatbot, an Online Banking System, and 'Beyond the Firewall', 'AI Cold Mail Generator'. Scroll to the Projects section for details with GitHub links.";
+
+    // === Contact ===
+    if (["contact","email","reach","mail","get in touch","connect","how to contact","drop a message","contact info"].some(k => lower.includes(k)))
+        return "📬 You can reach me via the 'Email me' button, LinkedIn, or the Contact section below.";
+
+    // === GitHub ===
+    if (["github","git","repo","repositories","source code","commits","stars","github profile","my github"].some(k => lower.includes(k)))
+        return "🔗 GitHub links are in the header and each project card. I currently have 9 repositories and 75 commits this year.";
+
+    // === LinkedIn ===
+    if (["linkedin","professional network","network","connect linkedin","linkedin profile"].some(k => lower.includes(k)))
+        return "🌐 Connect with me on LinkedIn — link is available in the header navigation.";
+
+    // === Skills ===
+    if (["skills","tech stack","technologies","languages","tools","what do you know","programming","developer skills","frameworks","sql","java","springboot","docker","git","html","css"].some(k => lower.includes(k)))
+        return "⚡ My skills include Java, SQL (TDH SQL), Spring Boot, Docker, Git/GitHub, HTML, CSS, and AI development. Full list in the Skills section.";
+
+    // === Resume ===
+    if (["resume","cv","curriculum vitae","download resume","my cv","get resume","download cv"].some(k => lower.includes(k)))
+        return "📄 You can download my resume directly from the Resume section with the download button.";
+
+    // === Certifications ===
+    if (["certification","certifications","courses","training","certified","certificates","completed course"].some(k => lower.includes(k)))
+        return "🎓 I have completed certifications including the Java Masterclass 2025 and Git/GitHub fundamentals.";
+
+    // === Education ===
+    if (["education","college","study","degree","where did you study","qualification","graduation","engineering"].some(k => lower.includes(k)))
+        return "🎓 I graduated in Computer Science Engineering from Priyadarshini Engineering College.";
+
+    // === Experience ===
+    if (["experience","internship","work","career","job","work history","java intern","professional experience"].some(k => lower.includes(k)))
+        return "💼 I worked as a Java Intern at Zidio Development, focusing on backend development, debugging, and API integrations.";
+
+    // === Location ===
+    if (["location","where are you from","country","place","based","current location"].some(k => lower.includes(k)))
+        return "📍 I’m based in India, open to global remote opportunities.";
+
+    // === Stats ===
+    if (["stats","github stats","commits","followers","repositories","profile stats"].some(k => lower.includes(k)))
+        return "📊 My GitHub stats: 9 repositories, 7 followers, and 46 commits this year.";
+
+    // === Portfolio Navigation ===
+    if (["home","header","menu","navigation","top","start page","go to home"].some(k => lower.includes(k)))
+        return "🏠 Use the header navigation to jump between About, Skills, Projects, and Resume sections.";
+
+    if (["scroll projects","show projects","take me to projects"].some(k => lower.includes(k))) {
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        return "📂 Scrolling to the Projects section...";
     }
+
+    if (["scroll skills","show skills","take me to skills"].some(k => lower.includes(k))) {
+        document.getElementById('skills').scrollIntoView({ behavior: 'smooth' });
+        return "⚡ Scrolling to the Skills section...";
+    }
+
+    if (["scroll contact","show contact","take me to contact"].some(k => lower.includes(k))) {
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        return "📬 Scrolling to the Contact section...";
+    }
+
+    if (["scroll about","show about","take me to about"].some(k => lower.includes(k))) {
+        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        return "👤 Scrolling to the About section...";
+    }
+
+    if (["scroll resume","show resume","take me to resume"].some(k => lower.includes(k))) {
+        document.getElementById('resume').scrollIntoView({ behavior: 'smooth' });
+        return "📄 Scrolling to the Resume section...";
+    }
+
+    // === Fun / Extras (keep only once, merged below) ===
+
+    // Jokes
+    if (["joke","tell me a joke","funny","make me laugh"].some(k => lower.includes(k))) {
+        const jokes = [
+            "😂 Why do programmers prefer dark mode? Because light attracts bugs!",
+            "💻 Why was the computer cold? Because it forgot to close its Windows!",
+            "🐞 Debugging is like being the detective in a crime movie where you are also the murderer.",
+             "☕ Programmer’s favorite hangout spot? The Java café.",
+        "📟 Why do Java developers wear glasses? Because they can’t C#!",
+        "🖥 I would tell you a UDP joke... but you might not get it.",
+        "⚡ Why do programmers hate nature? Too many bugs.",
+        "🧑‍💻 Why did the Python live on land? Because it was tired of being in a shell.",
+        "⌨ I told my computer I needed a break, and it froze.",
+        "🕹 To understand recursion, you must first understand recursion.",
+        "🎮 Why don’t robots get scared? Because they have nerves of steel.",
+        "😂 What’s a programmer’s favorite place to hang out? The Foo Bar.",
+        "🐍 Why did the Python programmer sleep all day? Because he didn’t like Java.",
+        "🚀 Why did the developer go broke? Because he used up all his cache.",
+        "📡 Why don’t programmers like to go outside? The sunlight causes too many glare errors.",
+        "🐧 Why did Linux break up with Windows? Too many crashes in the relationship.",
+        "🧾 Why was the function always calm? Because it had good scope.",
+        "🤖 Robots don’t get tired... they just go into sleep mode.",
+        "📱 Why did the smartphone go to therapy? It lost its sense of touch.",
+        "💾 I’d tell you a memory joke... but you might forget it."
+        ];
+        return jokes[Math.floor(Math.random() * jokes.length)];
+    }
+
+    // Motivation
+    if (["motivate","motivation","inspire","quote"].some(k => lower.includes(k))) {
+        const quotes = [
+            "💡 Keep learning, keep building. Every line of code takes you closer to your dreams.",
+            "🚀 Dream big, start small, but most of all — start.",
+            "🔥 Failure is just the first step towards success.",
+            "⏳ Don’t wait for opportunity. Create it.",
+        "🌟 Every expert was once a beginner who didn’t quit.",
+        "⚡ Small progress each day adds up to big results.",
+        "💻 Code is like humor — when you have to explain it, it’s bad.",
+        "🏆 Success is not final, failure is not fatal: it is the courage to continue that counts.",
+        "📈 The best way to predict the future is to invent it.",
+        "📚 A good programmer is always learning.",
+        "🔑 Consistency beats intensity every single time.",
+        "🚧 Debug your mindset before debugging your code.",
+        "🌍 Your code might change the world. Don’t stop.",
+        "🧠 Logic will get you from A to B. Imagination will take you everywhere. – Einstein",
+        "🔥 Don’t fear errors; they are just stepping stones to mastery.",
+        "📌 Stay focused, stay humble, stay hungry.",
+        "💪 Hard work beats talent when talent doesn’t work hard.",
+        "🌱 Growth is uncomfortable because you’ve never been here before.",
+        "🎯 A line of code today is an application tomorrow.",
+        "✨ You don’t have to be great to start, but you have to start to be great."
+            
+        ];
+        return quotes[Math.floor(Math.random() * quotes.length)];
+    }
+
+    // (You can keep hobbies, facts, easter eggs here as in your original — just avoid re-declaring the whole function)
+}
+
+chatbotToggle.onclick = () => {
+  chatbotBox.style.display = 'block';
+  chatbotMessages.innerHTML = ''; // ✅ reset history
+  addMessage("👋 Hi! I'm your portfolio assistant. Ask me about projects, skills, or how to contact Jaganarul.", 'bot');
+};
+
+
+
 
     function addMessage(text, from='user') {
         const div = document.createElement('div');
@@ -293,7 +553,8 @@
         </section>
 
 <!-- ...existing code... -->
-
+    
 
 </body>
 </html>
+   

@@ -7,28 +7,6 @@ document.querySelectorAll('nav a').forEach(link => {
   });
 });
 
-
-const toggleBtn = document.getElementById('theme-toggle');
-const body = document.body;
-
-// Check saved preference
-if (localStorage.getItem('theme') === 'light') {
-  body.classList.add('light-mode');
-  toggleBtn.textContent = "☀️ Light";
-}
-
-// Toggle on click
-toggleBtn.addEventListener('click', () => {
-  body.classList.toggle('light-mode');
-  const isLight = body.classList.contains('light-mode');
-  
-  toggleBtn.textContent = isLight ? "☀️ Light" : "🌙 Dark";
-  
-  // Save preference
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-});
-
-
 // === Scroll-to-Top Button (Optional) ===
 const topBtn = document.getElementById('scroll-top');
 window.onscroll = () => {

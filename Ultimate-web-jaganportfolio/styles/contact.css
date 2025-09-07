@@ -1,0 +1,71 @@
+/Ultimate-web-jaganportfolio/Ultimate-web-jaganportfolio/styles/contact.css
+
+/* Contact Page Styles */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    padding: 20px;
+}
+
+.contact-form {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: background var(--transition), color var(--transition);
+    max-width: 600px;
+    margin: auto;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid var(--accent2);
+    border-radius: var(--radius);
+    transition: border-color var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.contact-form button {
+    background: var(--button-gradient);
+    color: var(--button-text);
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.contact-form button:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.contact-form button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+    .contact-form {
+        padding: 16px;
+    }
+
+    .contact-form button {
+        width: 100%;
+    }
+}

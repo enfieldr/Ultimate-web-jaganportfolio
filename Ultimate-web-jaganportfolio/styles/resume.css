@@ -1,0 +1,80 @@
+/Ultimate-web-jaganportfolio/Ultimate-web-jaganportfolio/styles/resume.css
+
+/* Resume Page Styles */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    padding: 20px;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.resume-container {
+    max-width: 800px;
+    margin: auto;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    border-bottom: 2px solid var(--accent2);
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: var(--glass-bg);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+ul li:hover {
+    transform: translateY(-2px);
+}
+
+.contact-info {
+    margin-top: 20px;
+    padding: 10px;
+    background: var(--glass-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}

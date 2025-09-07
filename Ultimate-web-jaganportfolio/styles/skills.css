@@ -1,0 +1,63 @@
+/Ultimate-web-jaganportfolio/Ultimate-web-jaganportfolio/styles/skills.css
+
+/* Skills Page Styles */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: background var(--transition);
+}
+
+.skills-header {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.skills-list li {
+    background: var(--glass-bg);
+    padding: 15px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skills-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skills-list i {
+    font-size: 1.5em;
+    color: var(--accent4);
+}
+
+@media (max-width: 700px) {
+    .skills-header {
+        font-size: 1.5em;
+    }
+
+    .skills-list li {
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+}

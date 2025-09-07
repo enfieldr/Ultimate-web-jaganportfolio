@@ -1,0 +1,87 @@
+/Ultimate-web-jaganportfolio/Ultimate-web-jaganportfolio/styles/landing.css
+
+/* Landing Page Styles */
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    transition: background var(--transition), color var(--transition);
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero-title {
+    font-size: 3em;
+    font-weight: 900;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-in-out;
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    margin-bottom: 40px;
+    animation: slideIn 1s ease-in-out 0.5s forwards;
+}
+
+.cta-button {
+    background: var(--button-gradient);
+    color: var(--button-text);
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background var(--transition), transform var(--transition);
+    animation: bounceIn 1s ease-in-out 1s forwards;
+}
+
+.cta-button:hover {
+    background: var(--button-hover);
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}

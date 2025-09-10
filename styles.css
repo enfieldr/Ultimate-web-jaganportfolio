@@ -310,6 +310,8 @@ section::before {
     transform: scale(1.08) rotate(-2deg);
 }
 
+
+
 /* Buttons & Links */
 .linkContainer {
     display: flex;
@@ -377,6 +379,133 @@ section::before {
     border-color: var(--accent4);
 }
 
+/* --- Work Experience Section --- */
+#experience {
+    margin-bottom: 48px;
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 40px 32px;
+    backdrop-filter: blur(8px);
+    border: 1.5px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s both;
+}
+
+#experience::before {
+    content: "";
+    position: absolute;
+    top: -40px; left: -40px;
+    width: 120px; height: 120px;
+    background: var(--button-gradient);
+    opacity: 0.13;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.experience-item {
+    background: var(--glass-bg);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 8px 0 var(--accent2);
+    padding: 24px 28px;
+    border-left: 4px solid var(--accent4);
+    transition: box-shadow 0.3s, transform 0.2s;
+    position: relative;
+    animation: fadeInUp 1.2s both;
+}
+
+.experience-item:hover {
+    box-shadow: 0 8px 32px var(--accent4);
+    transform: scale(1.02) translateY(-2px);
+}
+
+.exp-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.exp-role {
+    color: var(--accent4);
+    font-weight: 800;
+    font-size: 1.15em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.exp-company {
+    color: var(--accent3);
+    font-weight: 600;
+}
+
+.exp-date {
+    color: var(--accent2);
+    font-size: 0.98em;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.exp-details {
+    margin-top: 8px;
+    margin-left: 18px;
+    color: var(--primary-color);
+    font-size: 1.08em;
+    line-height: 1.7;
+    list-style: disc;
+    padding-left: 18px;
+}
+
+.exp-details li {
+    margin-bottom: 6px;
+    transition: color 0.2s;
+}
+
+.experience-item:hover .exp-details li {
+    color: var(--accent4);
+}
+
+/* Animation for fade-in up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive for Experience */
+@media (max-width: 700px) {
+    #experience, .experience-item {
+        padding: 18px 8px;
+    }
+    .exp-header {
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+    }
+}
 /* Chatbot Styles */
 #chatbot-toggle {
     position: fixed;
@@ -568,3 +697,4 @@ img, video {
     display: inline-block;}
     .contant_box_404{margin-top: -50px;}
 
+    

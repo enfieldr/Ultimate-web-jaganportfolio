@@ -193,3 +193,5 @@ console.log(ScrollTrigger.getById("example").animation);
         setTimeout(() => addMessage(botReply(msg), 'bot'), 500);
         chatbotInput.value = '';
     };
+
+    

@@ -19,6 +19,23 @@
 
 }
 
+/* 🌌 Live Gradient Background */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #080707, #1fd8a4, #13b88a, #adf0d4);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  font-family: 'Inter', sans-serif;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
 
 
 /* Reset and base styles */
@@ -40,6 +57,8 @@ body {
     padding: 18px 0;
     background-attachment: fixed;
 }
+
+
 
 /* Header & Navigation */
 header {
@@ -506,6 +525,10 @@ section::before {
         align-items: flex-start;
     }
 }
+
+
+
+
 /* Chatbot Styles */
 #chatbot-toggle {
     position: fixed;
@@ -682,6 +705,10 @@ img, video {
     display: block;
 }
 
+
+
+
+
 /*404 page not found*/
 
 .four_zero_four_bg h3{
@@ -696,5 +723,38 @@ img, video {
     margin: 20px 0;
     display: inline-block;}
     .contant_box_404{margin-top: -50px;}
+    
+    .page_404 {
+      width: 100%;
+    }
+
+    .four_zero_four_bg {
+      background: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif) no-repeat center;
+      height: 400px;
+    }
+
+    .four_zero_four_bg h3 {
+      font-size: 80px;
+      margin: 0;
+    }
+
+    .contant_box_404 {
+      margin-top: -50px;
+    }
+
+    .link_404 {
+      color: #fff !important;
+      padding: 10px 20px;
+      background: #39ac31;
+      margin: 20px 0;
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .link_404:hover {
+      background: #2e8b28;
+    }
 
     

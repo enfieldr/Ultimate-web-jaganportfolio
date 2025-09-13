@@ -22,6 +22,8 @@ topBtn?.addEventListener('click', () => {
 
 
 
+
+
 // === Chatbot Logic with Typing Effect ===
 function addMessage(msg, sender = 'bot') {
   const container = document.getElementById('chat');

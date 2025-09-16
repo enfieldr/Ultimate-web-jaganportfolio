@@ -574,7 +574,7 @@ section::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--accent4);
+    background: var(#222);
     color: #fff;
     font-weight: 700;
 }

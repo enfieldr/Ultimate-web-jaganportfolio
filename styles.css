@@ -16,17 +16,21 @@
     --font-main: 'Inter', sans-serif;
     --button-gradient: linear-gradient(90deg, #aba610 0%, #000000 100%);
     --button-gradient-hover: linear-gradient(90deg, #ff5e62 0%, #5e72eb 100%);
-
+    --bg-image: url('Background.jpg'); /* Add your image file here */
 }
 
-/* 🌌 Live Gradient Background */
+/* 🌌 Live Gradient Background with Image Overlay */
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(-45deg, #080707, #1fd8a4, #13b88a, #adf0d4);
-  background-size: 400% 400%;
-  animation: gradientShift 12s ease infinite;
-  font-family: 'Inter', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background:
+        linear-gradient(-45deg, #080707cc, #1fd8a4cc, #13b88acc, #adf0d4cc),
+        var(--bg-image) center center/cover no-repeat fixed;
+    background-blend-mode: overlay;
+    background-size: cover;
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-color);
+    animation: gradientShift 12s ease infinite;
 }
 
 @keyframes gradientShift {

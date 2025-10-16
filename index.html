@@ -551,6 +551,14 @@
 <!-- 3D Animated Person -->
 <div id="animated-person">
   <div class="person-container">
+    <!-- Head -->
+    <div class="head">
+      <div class="eyes">
+        <div class="eye left-eye"></div>
+        <div class="eye right-eye"></div>
+      </div>
+      <div class="mouth"></div>
+    </div>
     <!-- Body -->
     <div class="body"></div>
     <!-- Head -->
@@ -637,10 +645,11 @@ body {
 }
 
 .eyes {
-  position: absolute;
+  position: content-box;
   top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 80%;
+  display: flex;
+  transform: translateX(20%);
 }
 
 .eye {
@@ -650,7 +659,7 @@ body {
   border-radius: 50%;
   display: inline-block;
   margin: 0 2px;
-  animation: blink 4s infinite;
+  animation: blink 1s infinite;
 }
 
 .mouth {

@@ -546,11 +546,37 @@
 
     
 
+<!-- AI Chatbot Widget -->
 
+<!-- 3D Animated Person -->
+<div id="animated-person">
+  <div class="person-container">
+    <!-- Body -->
+    <div class="body"></div>
+    <!-- Head -->
+    <div class="head">
+      <div class="eyes">
+        <div class="eye left-eye"></div>
+        <div class="eye right-eye"></div>
+      </div>
+      <div class="mouth"></div>
+    </div>
+    <!-- Arms -->
+    <div class="arm left-arm"></div>
+    <div class="arm right-arm raising"></div>
+    <!-- Legs -->
+    <div class="leg left-leg"></div>
+    <div class="leg right-leg"></div>
+    <!-- Attention particles -->
+    <div class="attention-particle particle-1">I'M</div>
+    <div class="attention-particle particle-2">Your</div>
+    <div class="attention-particle particle-3">Guide</div>
+  </div>
+</div>
 
-   <!-- Chatbot Toggle -->
+<!-- Chatbot Toggle -->
 <div id="chatbot-toggle">
-  <button id="open-chatbot">🤖</button>
+  <button id="open-chatbot">💬</button>
 </div>
 
 <!-- Chatbot Box -->
@@ -567,6 +593,196 @@
 </div>
 
 <style>
+body {
+  box-sizing: border-box;
+}
+
+/* 3D Animated Person */
+#animated-person {
+  position: fixed;
+  bottom: 120px;
+  right: 30px;
+  z-index: 998;
+  perspective: 1000px;
+}
+
+.person-container {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: personFloat 3s ease-in-out infinite;
+}
+
+/* Body */
+.body {
+  width: 30px;
+  height: 50px;
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
+  border-radius: 15px 15px 8px 8px;
+  position: relative;
+  transform: rotateY(15deg);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+/* Head */
+.head {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  left: 2.5px;
+  transform: rotateY(15deg);
+  box-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+}
+
+.eyes {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.eye {
+  width: 3px;
+  height: 3px;
+  background: #1f2937;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 2px;
+  animation: blink 4s infinite;
+}
+
+.mouth {
+  width: 6px;
+  height: 3px;
+  background: #1f2937;
+  border-radius: 0 0 6px 6px;
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Arms */
+.arm {
+  width: 4px;
+  height: 25px;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  border-radius: 2px;
+  position: absolute;
+  top: 5px;
+  transform-origin: top center;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.2);
+}
+
+.left-arm {
+  left: -8px;
+  transform: rotateZ(-20deg) rotateY(15deg);
+  animation: armSwing 2s ease-in-out infinite;
+}
+
+.right-arm {
+  right: -8px;
+  transform: rotateZ(20deg) rotateY(15deg);
+}
+
+.raising {
+  animation: raiseHand 2s ease-in-out infinite;
+}
+
+/* Legs */
+.leg {
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(45deg, #1f2937, #374151);
+  border-radius: 2px;
+  position: absolute;
+  bottom: -20px;
+  transform-origin: top center;
+  box-shadow: 0 2px 8px rgba(31, 41, 55, 0.2);
+}
+
+.left-leg {
+  left: 8px;
+  transform: rotateZ(-10deg) rotateY(15deg);
+  animation: legMove 2s ease-in-out infinite;
+}
+
+.right-leg {
+  right: 8px;
+  transform: rotateZ(10deg) rotateY(15deg);
+  animation: legMove 2s ease-in-out infinite reverse;
+}
+
+/* Attention Particles */
+.attention-particle {
+  position: absolute;
+  font-size: 16px;
+  pointer-events: none;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.particle-1 {
+  top: -30px;
+  left: -20px;
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  top: -25px;
+  right: -15px;
+  animation-delay: 0.7s;
+}
+
+.particle-3 {
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 1.4s;
+}
+
+/* Animations */
+@keyframes personFloat {
+  0%, 100% { transform: translateY(0px) rotateY(5deg); }
+  50% { transform: translateY(-8px) rotateY(-5deg); }
+}
+
+@keyframes raiseHand {
+  0%, 100% { transform: rotateZ(20deg) rotateY(15deg) rotateX(-30deg); }
+  50% { transform: rotateZ(-45deg) rotateY(15deg) rotateX(-60deg); }
+}
+
+@keyframes armSwing {
+  0%, 100% { transform: rotateZ(-20deg) rotateY(15deg); }
+  50% { transform: rotateZ(-30deg) rotateY(15deg); }
+}
+
+@keyframes legMove {
+  0%, 100% { transform: rotateZ(-10deg) rotateY(15deg); }
+  50% { transform: rotateZ(-5deg) rotateY(15deg); }
+}
+
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+@keyframes sparkle {
+  0% { 
+    opacity: 0; 
+    transform: translateY(0px) scale(0.5) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: translateY(-15px) scale(1.2) rotate(180deg); 
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(-30px) scale(0.8) rotate(360deg); 
+  }
+}
+
 /* Toggle Button */
 #chatbot-toggle {
   position: fixed;
@@ -576,7 +792,7 @@
 }
 
 #open-chatbot {
-  font-size: 40px; /* Bigger size */
+  font-size: 40px;
   padding: 16px;
   border: none;
   border-radius: 100%;
@@ -600,6 +816,132 @@
 
 /* Chatbot Box */
 #chatbot-box {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.chatbot-header {
+  background: #4f46e5;
+  color: white;
+  padding: 15px;
+  border-radius: 15px 15px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+#close-chatbot {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+#chatbot-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+#chatbot-form {
+  padding: 15px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 10px;
+}
+
+#chatbot-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+}
+
+#chatbot-form button {
+  padding: 10px 15px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+#chatbot-form button:hover {
+  background: #4338ca;
+}
+</style>
+
+<script>
+
+
+// Toggle chatbot
+openChatbot.addEventListener('click', () => {
+  chatbotBox.style.display = 'flex';
+  chatbotToggle.style.display = 'none';
+  animatedPerson.style.display = 'none';
+  chatbotInput.focus();
+});
+
+closeChatbot.addEventListener('click', () => {
+  chatbotBox.style.display = 'none';
+  chatbotToggle.style.display = 'block';
+  animatedPerson.style.display = 'block';
+});
+
+// Handle form submission
+chatbotForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const message = chatbotInput.value.trim();
+  if (message) {
+    addMessage(message, 'user');
+    chatbotInput.value = '';
+    
+  }
+});
+
+function addMessage(text, sender) {
+  const messageDiv = document.createElement('div');
+  messageDiv.style.marginBottom = '10px';
+  messageDiv.style.padding = '8px 12px';
+  messageDiv.style.borderRadius = '12px';
+  messageDiv.style.maxWidth = '80%';
+  
+  if (sender === 'user') {
+    messageDiv.style.background = '#4f46e5';
+    messageDiv.style.color = 'white';
+    messageDiv.style.marginLeft = 'auto';
+    messageDiv.style.textAlign = 'right';
+  } else {
+    messageDiv.style.background = '#e2e8f0';
+    messageDiv.style.color = '#1f2937';
+  }
+  
+  messageDiv.textContent = text;
+  chatbotMessages.appendChild(messageDiv);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+</script>
+
+<style>
+/* Chatbot Box */
+#chatbot-box {
   display: none;
   flex-direction: column;
   position: fixed;
@@ -608,7 +950,7 @@
   width: 90%;
   max-width: 360px;
   height: 60%;
-  max-height: 520px;
+  max-height: 350px;
   border-radius: 14px;
   overflow: hidden;
   background: #1e1e1e;
@@ -722,15 +1064,15 @@
 
     // === GitHub ===
     if (["github","git","repo","repositories","source code","commits","stars","github profile","my github"].some(k => lower.includes(k)))
-        return "🔗 GitHub links are in the header and each project card. I currently have 9 repositories and 75 commits this year.";
+        return "🔗 GitHub links are in the header and each project card. I currently have 10 repositories and 150 commits this year.";
 
     // === LinkedIn ===
     if (["linkedin","professional network","network","connect linkedin","linkedin profile"].some(k => lower.includes(k)))
-        return "🌐 Connect with me on LinkedIn — link is available in the header navigation.";
+        return "🌐 Connect with me on LinkedIn — link is available in the header navigation or go to the footer.";
 
     // === Skills ===
     if (["skills","tech stack","technologies","languages","tools","what do you know","programming","developer skills","frameworks","sql","java","springboot","docker","git","html","css"].some(k => lower.includes(k)))
-        return "⚡ My skills include Java, SQL (TDH SQL), Spring Boot,Temenos T24, Docker, Git/GitHub, HTML, CSS, and AI development. Full list in the Skills section.";
+        return "⚡ My skills include Java, SQL, Kafka , Spring Boot,Temenos T24, Docker, Git/GitHub, HTML, CSS, and AI development. Full list in the Skills section.";
 
     // === Resume ===
     if (["resume","cv","curriculum vitae","download resume","my cv","get resume","download cv"].some(k => lower.includes(k)))
@@ -738,7 +1080,7 @@
 
     // === Certifications ===
     if (["certification","certifications","courses","training","certified","certificates","completed course"].some(k => lower.includes(k)))
-        return "🎓 I have completed certifications including the Java Masterclass 2025 and Git/GitHub fundamentals.";
+        return "🎓 I have completed certifications including the Java Masterclass 2025 and Git/GitHub fundamentals and More.";
 
     // === Education ===
     if (["education","college","study","degree","where did you study","qualification","graduation","engineering"].some(k => lower.includes(k)))
@@ -754,7 +1096,7 @@
 
     // === Stats ===
     if (["stats","github stats","commits","followers","repositories","profile stats"].some(k => lower.includes(k)))
-        return "📊 My GitHub stats: 9 repositories, 7 followers, and 95 commits this year.";
+        return "📊 My GitHub stats: 10 repositories, 7 followers, and 150 commits this year.";
 
     // === Portfolio Navigation ===
     if (["home","header","menu","navigation","top","start page","go to home"].some(k => lower.includes(k)))
@@ -788,31 +1130,68 @@
     // === Fun / Extras (keep only once, merged below) ===
 
     // Jokes
-    if (["joke","tell me a joke","next Joke","funny","make me laugh"].some(k => lower.includes(k))) {
-        const jokes = [
-            "😂 Why do programmers prefer dark mode? Because light attracts bugs!",
-            "💻 Why was the computer cold? Because it forgot to close its Windows!",
-            "🐞 Debugging is like being the detective in a crime movie where you are also the murderer.",
-             "☕ Programmer’s favorite hangout spot? The Java café.",
-        "📟 Why do Java developers wear glasses? Because they can’t C#!",
-        "🖥 I would tell you a UDP joke... but you might not get it.",
-        "⚡ Why do programmers hate nature? Too many bugs.",
-        "🧑‍💻 Why did the Python live on land? Because it was tired of being in a shell.",
-        "⌨ I told my computer I needed a break, and it froze.",
-        "🕹 To understand recursion, you must first understand recursion.",
-        "🎮 Why don’t robots get scared? Because they have nerves of steel.",
-        "😂 What’s a programmer’s favorite place to hang out? The Foo Bar.",
-        "🐍 Why did the Python programmer sleep all day? Because he didn’t like Java.",
-        "🚀 Why did the developer go broke? Because he used up all his cache.",
-        "📡 Why don’t programmers like to go outside? The sunlight causes too many glare errors.",
-        "🐧 Why did Linux break up with Windows? Too many crashes in the relationship.",
-        "🧾 Why was the function always calm? Because it had good scope.",
-        "🤖 Robots don’t get tired... they just go into sleep mode.",
+    if (["joke","tell me a joke","next joke","funny","one more joke","make me laugh","say something funny","coding joke","developer joke","geek joke","ai joke","programmer joke","computer joke","tech joke","nerdy joke","robot joke","machine joke","data joke","software joke","debugging joke","console joke","error joke","bug joke","fix joke","fun joke","crack a joke","java joke","python joke","html joke","css joke","github joke","laptop joke","server joke","database joke","sql joke","ai fun","laugh","make me smile"].some(k => lower.includes(k))) {
+    const jokes = [
+        "😂 Why do programmers prefer dark mode? Because light attracts bugs!",
+        "💻 Why was the computer cold? It forgot to close its Windows.",
+        "🐞 Debugging is like being a detective in a crime movie where you are also the murderer.",
+        "☕ Why do Java developers wear glasses? Because they don’t C#!",
+        "🖥 I would tell you a UDP joke, but you might not get it.",
+        "📟 Why did the developer go broke? Because he used up all his cache.",
+        "🎮 To understand recursion, you must first understand recursion.",
+        "🐍 Why did the Python live on land? Because it was tired of being in a shell.",
         "📱 Why did the smartphone go to therapy? It lost its sense of touch.",
-        "💾 I’d tell you a memory joke... but you might forget it."
-        ];
-        return jokes[Math.floor(Math.random() * jokes.length)];
-    }
+        "🤖 Robots don’t get tired — they just go into sleep mode.",
+        "⚡ Why do programmers hate nature? Too many bugs.",
+        "🧑‍💻 Why was the JavaScript developer sad? Because he didn’t ‘Node’ how to Express himself.",
+        "🖱 Why was the web developer broke? Because he used up all his cache.",
+        "📡 Why don’t programmers like to go outside? The sunlight causes too many glare errors.",
+        "🧠 I told my computer I needed a break, and it said ‘no problem — I’ll go to sleep’.",
+        "📦 Why did the function stop calling? It had too many arguments.",
+        "🚀 Why did the cloud server break up with the local drive? Too much distance in the relationship.",
+        "📺 Why was the software engineer calm? Because he had good exception handling.",
+        "📚 Why did the database administrator leave his wife? She had one-to-many relationships.",
+        "🧩 Why was the computer so smart? It listened to its motherboard.",
+        "🛠 Why did the developer bring a ladder to work? To reach the next level.",
+        "🖥 Why don’t computers play music? Because their keys are always out of tune.",
+        "🧃 Why did the PowerPoint presentation cross the road? To get to the other slide.",
+        "💾 I’d tell you a memory joke... but you might forget it.",
+        "🧮 Why did the AI refuse to fight? It didn’t want to enter a neural conflict.",
+        "📊 Why was the neural network stressed? Too many layers to handle.",
+        "🤔 Why do coders confuse Christmas and Halloween? Because Oct 31 == Dec 25.",
+        "🧱 Why was the CSS developer bad at relationships? Because he always kept things in ‘flex’ mode.",
+        "💬 Why did the chatbot blush? It saw a new input it couldn’t handle.",
+        "🪲 My code doesn’t have bugs; it just develops random features.",
+        "🎯 Why did the programmer quit his job? He didn’t get arrays.",
+        "🎮 Why was the JavaScript developer in therapy? He had callback issues.",
+        "💣 Why did the computer explode? Too many processes running.",
+        "📡 Why did the server crash? It couldn’t handle the requests.",
+        "📞 What did one server say to another? ‘You complete my requests.’",
+        "⚙️ Why did the coder bring a pillow to work? For better sleep mode.",
+        "📌 Why did the Git developer go to therapy? He couldn’t commit.",
+        "🔍 Why did the function always feel lost? It had no return statement.",
+        "🧑‍💻 What’s a computer’s favorite snack? Microchips.",
+        "💡 Why was the AI so confident? It had great self-training.",
+        "📜 Why do programmers love nature? It has too many branches.",
+        "🧊 Why did the laptop freeze? Because someone left Windows open.",
+        "📀 Why did the software developer’s house look empty? Because he had a minimalist UI.",
+        "📢 Why did the algorithm go to school? To improve its logic.",
+        "🎉 Why do coders love parties? Because they always have great loops.",
+        "🧩 Why do developers hate surprises? They prefer predictable functions.",
+        "🌐 What’s a computer’s favorite beat? An algo-rhythm.",
+        "🎭 Why was the program shy? It didn’t want to expose its API.",
+        "🧃 Why did the data scientist bring a broom? To clean the data.",
+        "☕ Why did the programmer love coffee? It helped him Java better.",
+        "📶 Why was the Wi-Fi so humble? Because it always said ‘I’m connected’.",
+        "🚨 Why did the AI panic? Someone deleted its neural memories.",
+        "🔌 What’s a computer’s favorite dance? The algorithm shuffle.",
+        "🧱 Why do programmers hate construction sites? Too many concrete classes.",
+        "🪄 My favorite magic trick? Turning caffeine into code.",
+        "🧭 Why was the coder great at directions? Because he followed the path."
+    ];
+    return jokes[Math.floor(Math.random() * jokes.length)];
+}
+
 
     // Motivation
     if (["motivate","motivation","next motivation","inspire","quote"].some(k => lower.includes(k))) {
@@ -894,7 +1273,7 @@ chatbotToggle.onclick = () => {
   <div class="social-links">
     <a href="https://github.com/enfieldr" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://linkedin.com/in/jaganarul-a-22887a227" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://x.com/jagan_arul2?t=mwjlsXSYCCDADt_M5MOwsw&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
     <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
   <p class="footer-text">© 2025 Jaganarul. All rights reserved.</p>

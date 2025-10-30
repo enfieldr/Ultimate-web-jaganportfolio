@@ -923,18 +923,7 @@ button:active {
   50% { transform: translateY(-10px); }
 }
 
-.modelViewPort {
-  perspective: 1000px;
-  width: 10rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(circle at center, #111 0%, #000 100%);
-  overflow: hidden;
-  box-shadow: 0 0 25px rgba(0,255,255,0.3);
-}
+
 .eva {
   --EVA-ROTATION-DURATION: 4s;
   transform-style: preserve-3d;

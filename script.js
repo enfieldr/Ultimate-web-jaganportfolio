@@ -196,4 +196,7 @@ console.log(ScrollTrigger.getById("example").animation);
         chatbotInput.value = '';
     };
 
+
+
+
     

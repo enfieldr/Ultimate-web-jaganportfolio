@@ -789,4 +789,350 @@ img, video {
   100% { transform: rotate(-30deg); }
 }
 
-    
+/* From Uiverse.io by adamgiebl */ 
+button {
+  font-family: inherit;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+  transform: translateX(5em);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
+/* From Uiverse.io by Nawsome */ 
+.svg-frame {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-frame svg {
+  position: absolute;
+  transition: .5s;
+  z-index: calc(1 - (0.2 * var(--j)));
+  transform-origin: center;
+  width: 344px;
+  height: 344px;
+  fill: none;
+}
+
+.svg-frame:hover svg {
+  transform: rotate(-80deg) skew(30deg) translateX(calc(45px * var(--i))) translateY(calc(-35px * var(--i)));
+}
+
+.svg-frame svg #center {
+  transition: .5s;
+  transform-origin: center;
+}
+
+.svg-frame:hover svg #center {
+  transform: rotate(-30deg) translateX(45px) translateY(-3px);
+}
+
+#out2 {
+  animation: rotate16 7s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+#out3 {
+  animation: rotate16 3s ease-in-out infinite alternate;
+  transform-origin: center;
+  stroke: #ff0;
+}
+
+#inner3,
+#inner1 {
+  animation: rotate16 4s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+#center1 {
+  fill: #ff0;
+  animation: rotate16 2s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes rotate16 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* --- Robot Styling (EVA) --- */
+#ai-robot {
+  position: fixed;
+  bottom: 110px;
+  right: 90px;
+  z-index: 998;
+  animation: floatBot 4s ease-in-out infinite;
+}
+
+@keyframes floatBot {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.modelViewPort {
+  perspective: 1000px;
+  width: 10rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+}
+.eva {
+  --EVA-ROTATION-DURATION: 4s;
+  transform-style: preserve-3d;
+  animation: rotateRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+}
+.head {
+  position: relative;
+  width: 5rem;
+  height: 3.2rem;
+  border-radius: 48% 53% 45% 55% / 79% 79% 20% 22%;
+  background: linear-gradient(to right, white 45%, #e0e0e0);
+}
+.eyeChamber {
+  width: 3.5rem;
+  height: 2rem;
+  position: relative;
+  left: 50%;
+  top: 55%;
+  border-radius: 45% 53% 45% 48% / 62% 59% 35% 34%;
+  background-color: #0c203c;
+  box-shadow: 0px 0px 2px 2px white, inset 0px 0px 0px 2px black;
+  transform: translate(-50%, -50%);
+  animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+}
+.eye {
+  width: 0.9rem;
+  height: 1.1rem;
+  position: absolute;
+  border-radius: 50%;
+}
+.eye:first-child {
+  left: 10px;
+  top: 50%;
+  background: repeating-linear-gradient(65deg, #9bdaeb 0px, #9bdaeb 1px, white 2px);
+  box-shadow: inset 0px 0px 4px #04b8d5, 0px 0px 12px 1px #0bdaeb;
+  transform: translate(0, -50%) rotate(-65deg);
+}
+.eye:nth-child(2) {
+  right: 10px;
+  top: 50%;
+  background: repeating-linear-gradient(-65deg, #9bdaeb 0px, #9bdaeb 1px, white 2px);
+  box-shadow: inset 0px 0px 4px #04b8d5, 0px 0px 12px 1px #0bdaeb;
+  transform: translate(0, -50%) rotate(65deg);
+}
+.body {
+  width: 5rem;
+  height: 6.5rem;
+  position: relative;
+  margin-top: 0.25rem;
+  border-radius: 47% 53% 45% 55% / 12% 9% 90% 88%;
+  background: linear-gradient(to right, white 35%, #ccc);
+}
+.hand {
+  position: absolute;
+  left: -1.2rem;
+  top: 0.75rem;
+  width: 1.5rem;
+  height: 4.5rem;
+  border-radius: 40%;
+  background: linear-gradient(to left, white 15%, #ddd);
+  box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.25);
+  transform: rotateY(55deg) rotateZ(10deg);
+}
+.hand:first-child {
+  animation: compensateRotation var(--EVA-ROTATION-DURATION) linear infinite alternate;
+}
+.hand:nth-child(2) {
+  left: 85%;
+  background: linear-gradient(to right, white 15%, #ddd);
+  transform: rotateY(55deg) rotateZ(-10deg);
+  animation: compensateRotationRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+}
+.scannerThing {
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 60%;
+  top: 10%;
+  border-top: 120px solid #9bdaeb;
+  border-left: 180px solid transparent;
+  border-right: 180px solid transparent;
+  transform-origin: top left;
+  mask: linear-gradient(to right, white, transparent 35%);
+  animation: glow 2s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+}
+.scannerOrigin {
+  position: absolute;
+  width: 6px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 60%;
+  top: 10%;
+  background: #9bdaeb;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+  animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite;
+}
+@keyframes rotateRight { from { transform: rotateY(0deg); } to { transform: rotateY(25deg); } }
+@keyframes moveRight { from { transform: translate(-50%, -50%); } to { transform: translate(-40%, -50%); } }
+@keyframes compensateRotation { from { transform: rotateY(55deg) rotateZ(10deg); } to { transform: rotateY(30deg) rotateZ(10deg); } }
+@keyframes compensateRotationRight { from { transform: rotateY(55deg) rotateZ(-10deg); } to { transform: rotateY(70deg) rotateZ(-10deg); } }
+@keyframes glow {
+  from { opacity: 0; }
+  20% { opacity: 1; }
+  45% { transform: rotate(-25deg); }
+  75% { transform: rotate(5deg); }
+  100% { opacity: 0; }
+}
+
+/* --- Chatbot Styling --- */
+#chatbot-toggle {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+}
+#open-chatbot {
+  background: linear-gradient(135deg, #00f5ff, #0066ff);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 2.2em;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+#open-chatbot:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(0,255,255,0.7);
+}
+#chatbot-box {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 28px;
+  width: 340px;
+  max-width: 95vw;
+  background: rgba(20,20,20,0.95);
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(0,255,255,0.2);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(0,255,255,0.2);
+  animation: fadeInUp 0.4s ease;
+}
+@keyframes fadeInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.chatbot-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(0,255,255,0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  font-weight: 700;
+}
+#close-chatbot {
+  background: none;
+  border: none;
+  color: #0ff;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+#close-chatbot:hover { transform: rotate(90deg); color: #fff; }
+#chatbot-messages {
+  padding: 14px 18px;
+  height: 200px;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.3);
+}
+#chatbot-form {
+  display: flex;
+  border-top: 1px solid rgba(0,255,255,0.3);
+  background: #111;
+}
+#chatbot-input {
+  flex: 1;
+  padding: 10px 14px;
+  background: #000;
+  border: none;
+  color: #0ff;
+  font-size: 1em;
+  outline: none;
+}
+#chatbot-form button {
+  background: linear-gradient(135deg, #00f5ff, #0066ff);
+  border: none;
+  color: #fff;
+  padding: 0 18px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+#chatbot-form button:hover {
+  background: linear-gradient(135deg, #0066ff, #00f5ff);
+}

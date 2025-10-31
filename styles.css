@@ -909,13 +909,13 @@ button:active {
 
 
 
-/* --- Robot Styling (EVA) --- */
+/* ---  (EVA) Robot  --- */
 #ai-robot {
   position: fixed;
-  bottom: 110px;
-  right: 90px;
+  bottom: 50px;
+  right: 50px;
   z-index: 998;
-  animation: floatBot 4s ease-in-out infinite;
+  animation: floatBot 2s ease-in-out infinite;
 }
 
 @keyframes floatBot {
